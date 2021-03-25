@@ -1,0 +1,1 @@
+# Node app used for testing the Crane Cloud platform.

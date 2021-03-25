@@ -1,0 +1,19 @@
+{
+  "name": "crane-mart-node-api",
+  "version": "1.0.0",
+  "description": "Node app used for testing the Crane Cloud platform.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crane-cloud/crane-mart-node-api.git"
+  },
+  "author": "Kawere C. Wagaba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crane-cloud/crane-mart-node-api/issues"
+  },
+  "homepage": "https://github.com/crane-cloud/crane-mart-node-api#readme"
+}
