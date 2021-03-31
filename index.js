@@ -39,4 +39,14 @@ app.post('/products', (req, res) => {
   });
 });
 
+app.get('/products', (req, res) => {
+  const sql = `SELECT * FROM products`;
+
+  connection.query(sql, (error, results, fields) => {
+    if (error) throw error;
+
+    res.status(200).send(results);
+  });
+});
+
 app.listen(3000);
