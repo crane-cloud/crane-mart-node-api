@@ -59,7 +59,7 @@ app.get('/products/:id', (req, res) => {
   });
 });
 
-app.post('/products/:id', (req, res) => {
+app.put('/products/:id', (req, res) => {
   const sql = `UPDATE products SET name = '${req.body.name}', price = ${req.body.price} WHERE id = ${req.params.id}`;
 
   connection.query(sql, (error, results, fields) => {
