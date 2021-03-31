@@ -39,16 +39,6 @@ app.post('/products', (req, res) => {
   });
 });
 
-app.post('/products/:id', (req, res) => {
-  const sql = `UPDATE products SET name = '${req.body.name}', price = ${req.body.price} WHERE id = ${req.params.id}`;
-
-  connection.query(sql, (error, results, fields) => {
-    if (error) throw error;
-
-    res.status(200).send(req.body);
-  });
-});
-
 app.get('/products', (req, res) => {
   const sql = `SELECT * FROM products`;
 
@@ -66,6 +56,26 @@ app.get('/products/:id', (req, res) => {
     if (error) throw error;
 
     res.status(200).send(results);
+  });
+});
+
+app.post('/products/:id', (req, res) => {
+  const sql = `UPDATE products SET name = '${req.body.name}', price = ${req.body.price} WHERE id = ${req.params.id}`;
+
+  connection.query(sql, (error, results, fields) => {
+    if (error) throw error;
+
+    res.status(200).send(req.body);
+  });
+});
+
+app.delete('/products/:id', (req, res) => {
+  const sql = `DELETE FROM products WHERE id = ${req.params.id}`;
+
+  connection.query(sql, (error, results, fields) => {
+    if (error) throw error;
+
+    res.status(200).send('Product deleted');
   });
 });
 
