@@ -26,4 +26,17 @@ app.get('/', (req, res) => {
   res.status(200).send('Welcome to Crane Mart');
 });
 
+app.post('/products', (req, res) => {
+  const sql = `INSERT INTO products (name, price) VALUES ('${req.body.name}', ${req.body.price})`;
+
+  connection.query(sql, (error, results, fields) => {
+    if (error) throw error;
+
+    res.status(201).send({
+      id: results.insertId,
+      ...req.body,
+    });
+  });
+});
+
 app.listen(3000);
