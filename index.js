@@ -49,4 +49,14 @@ app.get('/products', (req, res) => {
   });
 });
 
+app.get('/products/:id', (req, res) => {
+  const sql = `SELECT * FROM products WHERE id = ${req.params.id}`;
+
+  connection.query(sql, (error, results, fields) => {
+    if (error) throw error;
+
+    res.status(200).send(results);
+  });
+});
+
 app.listen(3000);
